@@ -34,7 +34,7 @@ graph LR
 ### Arduino UNO
 Atmega328p is a popular open-source microcontroller board for prototyping and education, based on the ATmega328P
 
-![alt text](docs/images/image.png?raw=true)
+![alt text](docs/images/arduino_uno.png?raw=true)
 
 ##### Specifications
 
