@@ -210,4 +210,5 @@ PlatformIO is an open-source ecosystem for IoT development, providing a unified 
 The Android Bluetooth Controller App is a mobile application designed to facilitate communication between an Android device and Bluetooth-enabled hardware, such as microcontrollers or IoT devices. This app allows users to send commands, receive data, and control connected devices wirelessly via Bluetooth. It typically features a user-friendly interface with buttons, sliders, or other controls to interact with the hardware, making it an essential tool for projects that require remote control or data monitoring through Bluetooth connectivity. The app can be customized to suit specific project needs, allowing developers to create tailored interfaces for their Bluetooth-enabled devices.
 
 
-
+## Circuit Diagram
+![alt text](docs/images/image.png?raw=true)
