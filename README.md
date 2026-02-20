@@ -1,6 +1,33 @@
 # Tunnel Inspection Robot
 
 
+## Block Diagram
+
+```mermaid
+graph TD
+    A[Arduino UNO] --> B[MQ6 LPG Sensor]
+    A --> C[MQ7 CO Sensor]
+    A --> D[DHT11 Temp/Humidity Sensor]
+    A --> E[Touch Sensor]
+    A --> F[L298N Motor Driver]
+    A --> G[HC05 Bluetooth Module]
+    A --> H[ESP32-CAM]
+    F --> I[DC Motor]
+    J[18650 Battery] --> K[DC Buck Converter] --> A
+```
+
+```mermaid
+graph LR 
+    A[Arduino UNO] --> B[MQ6 LPG Sensor]
+    A --> C[MQ7 CO Sensor]
+    A --> D[DHT11 Temp/Humidity Sensor]
+    A --> E[Touch Sensor]
+    A --> F[L298N Motor Driver]
+    A --> G[HC05 Bluetooth Module]
+    A --> H[ESP32-CAM]
+    F --> I[DC Motor]
+    J[18650 Battery] --> K[DC Buck Converter] --> A
+```
 ## Components
 1. Arduino UNO
 
