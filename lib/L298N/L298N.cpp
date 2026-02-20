@@ -19,11 +19,11 @@ void L298N::begin() {
     
     pinMode(in3, OUTPUT);
     pinMode(in4, OUTPUT);
-    pinMode(enB, OUTPUT);
+    // pinMode(enB, OUTPUT);
     
     // Set default speed
     analogWrite(enA, currentSpeed);
-    analogWrite(enB, currentSpeed);
+    // analogWrite(enB, currentSpeed);
     
     // Stop motors initially
     stop();
@@ -32,7 +32,7 @@ void L298N::begin() {
 void L298N::setSpeed(uint8_t speed) {
     currentSpeed = speed;
     analogWrite(enA, speed);
-    analogWrite(enB, speed);
+    // analogWrite(enB, speed);
 }
 
 void L298N::forward() {
@@ -97,6 +97,6 @@ void L298N::setRightMotorSpeed(uint8_t speed) {
     analogWrite(enA, speed);
 }
 
-void L298N::setLeftMotorSpeed(uint8_t speed) {
-    analogWrite(enB, speed);
-}
+// void L298N::setLeftMotorSpeed(uint8_t speed) {
+//     // analogWrite(enB, speed);
+// }
