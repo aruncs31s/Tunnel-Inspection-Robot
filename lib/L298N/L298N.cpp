@@ -38,26 +38,35 @@ void L298N::setSpeed(uint8_t speed) {
 void L298N::forward() {
     rightMotorForward();
     leftMotorForward();
+    delay(150);
+    stop();
 }
 
 void L298N::backward() {
     rightMotorBackward();
     leftMotorBackward();
+    delay(150);
+    stop();
 }
 
 void L298N::turnLeft() {
     rightMotorForward();
     leftMotorBackward();
+    delay(150);
+    stop();
 }
 
 void L298N::turnRight() {
     rightMotorBackward();
     leftMotorForward();
+    delay(150);
+    stop();
 }
 
 void L298N::stop() {
     rightMotorStop();
     leftMotorStop();
+
 }
 
 // Right motor control (OUT1)

@@ -38,6 +38,7 @@ float calculateRs(float Vo);
 unsigned int calculateLPG_PPM(float RsRo_ratio);
 float get_mq7_readings() ;
 void setup_mq7();
+String isMetalTouched(int val );
 void setup() {
   Serial.begin(BAUD_RATE);
 
@@ -95,14 +96,15 @@ void send_readings() {
     return; // Skip sending if within the interval
   }
   int touch_value = ts.isTouched() ? 1 : 0;
-  bt.print("Touch: ");
-  bt.println(touch_value);
+  bt.print("Metal :  ");
+  bt.println(isMetalTouched(touch_value));
 
   float h = dht.getHumidity();
   float t = dht.getTemperature();
-  bt.print("Temp: ");
+  bt.print("Temperature: ");
   bt.print(t);
-  bt.print(" C, Humidity: ");
+  bt.println(" C");
+  bt.print("Humidity: ");
   bt.print(h);
   bt.println(" %");
   
@@ -112,16 +114,7 @@ void send_readings() {
     float Rs = calculateRs(mq6_voltage);
     float ratio_RsRo = Rs / Ro;
     unsigned int lpg_ppm = calculateLPG_PPM(ratio_RsRo);
-    bt.print("MQ6 Voltage: ");
-    bt.print(mq6_voltage);
-    bt.println(" mV");
-    
-    bt.print("MQ6 Rs: ");
-    bt.println(Rs);
-    
-    bt.print("MQ6 Rs/Ro: ");
-    bt.println(ratio_RsRo);
-    
+
     bt.print("LPG PPM: ");
     bt.println(lpg_ppm);
   } else {
@@ -129,10 +122,20 @@ void send_readings() {
   }
   // MQ7 Sensor reading
   float mq7_voltage = get_mq7_readings();
-  bt.print("MQ7 Voltage: ");
-  bt.print(mq7_voltage);
-  bt.println(" V");
+unsigned int co_ppm = (unsigned int)(mq7_voltage * 200);
+  bt.print("CO PPM: ");
+  bt.println(co_ppm);
   lastSendTime = millis();
+}
+
+String isMetalTouched(int val ) {
+
+  if (val == 1) {
+    return "Detected";
+  }
+  else {
+    return "Not Detected";
+  }
 }
 
 // MQ6 Sensor Functions
